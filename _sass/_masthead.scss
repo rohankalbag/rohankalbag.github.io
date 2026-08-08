@@ -1,0 +1,42 @@
+// Masthead
+//
+// Super small header above the content for site name and short description.
+
+.nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: .9rem;
+
+  a {
+    color: var(--body-color);
+    text-decoration: none;
+  }
+
+  a[aria-current="page"],
+  a:hover,
+  a:focus { color: var(--heading-color); }
+}
+
+@media (max-width: 46rem) {
+  .nav {
+    position: absolute;
+    top: calc(100% + .5rem);
+    right: 0;
+    z-index: 10;
+    display: none;
+    min-width: 12rem;
+    padding: .5rem;
+    background: var(--body-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 .75rem 2rem rgba(0, 0, 0, .12);
+    flex-direction: column;
+    gap: 0;
+    font-size: .95rem;
+
+    a { padding: .65rem .75rem; border-radius: .45rem; }
+    a:hover, a:focus { background: rgba(127, 127, 127, .12); }
+  }
+
+  .nav.is-open { display: flex; }
+}

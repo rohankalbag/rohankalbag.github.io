@@ -1,0 +1,88 @@
+---
+layout: default
+title: Home
+permalink: /
+featured_projects:
+  - TinyVTA - A General Purpose FPGA-based Deep Neural Network Accelerator
+  - Pythonic Chat Application Implementing Secure End-to-End Encrypted Messaging using Signal Protocol
+  - Compiler Infrastructure and Optimization Implementations in Java
+---
+
+<section class="hero" aria-labelledby="intro-title">
+  <img src="{{ '/rohan.jpeg' | relative_url }}" alt="Portrait of Rohan Kalbag" class="hero-avatar">
+  <div class="hero-copy">
+    <p class="eyebrow">Hello, I’m</p>
+    <h1 id="intro-title">Rohan Kalbag.</h1>
+    <p class="hero-lede">Cloud engineer interested in software and hardware systems, artificial intelligence, and the intersections of technology, music, culture, fitness, and society.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="{{ '/projects/' | relative_url }}">Explore projects</a>
+      <a class="button" href="{{ '/blogs/' | relative_url }}">Explore blogs</a>
+    </div>
+  </div>
+</section>
+
+<section class="home-section" aria-labelledby="selected-work">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Builds</p>
+      <h2 id="selected-work">Selected work</h2>
+    </div>
+    <a class="text-link" href="{{ '/projects/' | relative_url }}">All projects <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="project-grid">
+    {% for featured_title in page.featured_projects %}
+    {% for post in site.posts %}
+    {% if post.title == featured_title %}
+    <article class="project-card">
+      <p class="card-kicker">{{ post.date | date: '%Y' }} · Project</p>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 170 }}</p>
+      <a class="card-link" href="{{ post.url | relative_url }}">View project <span aria-hidden="true">→</span></a>
+    </article>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="home-section reading-section" aria-labelledby="latest-writing">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Notebook</p>
+      <h2 id="latest-writing">Latest writing</h2>
+    </div>
+    <a class="text-link" href="{{ '/blogs/' | relative_url }}">Browse blogs <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="writing-list">
+    {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blog'" %}
+    {% for post in blog_posts limit: 4 %}
+    <article class="writing-item">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %Y' }}</time>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <a class="card-link" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}">Read <span aria-hidden="true">→</span></a>
+    </article>
+    {% endfor %}
+    {% if blog_posts.size == 0 %}
+    <p class="empty-state">Blog posts are on the way. In the meantime, explore the project archive.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="experiments" aria-labelledby="experiments-title">
+  <p class="eyebrow">Miscellaneous</p>
+  <h2 id="experiments-title">Small experiments and side quests.</h2>
+  <div class="miscellaneous-list">
+    <article class="miscellaneous-item">
+      <h3><a href="https://imposter-party-game.vercel.app/">Art thou an imposter? <span aria-hidden="true">↗</span></a></h3>
+      <p>A pass-the-device social deduction game for a group of friends. Everyone gets the same secret word except the imposter, so keep a straight face and work out who is bluffing.</p>
+    </article>
+    <article class="miscellaneous-item">
+      <h3><a href="https://youtu.be/oyIpZfvnFJE">Operation Reboot <span aria-hidden="true">↗</span></a></h3>
+      <p>A sci-fi roleplay I wrote, directed, and acted in for a collegiate project. Set in 2121, it follows two time travellers warning the present about the cost of climate change while making a case for sustainable development.</p>
+    </article>
+    <article class="miscellaneous-item">
+      <h3><a href="https://rohankalbag.vercel.app/music">Can't wait for my "Spotify Wrapped"? <span aria-hidden="true">↗</span></a></h3>
+      <p>A live, personal Spotify Wrapped. No need to wait a year to see what has been on repeat.</p>
+    </article>
+  </div>
+</section>

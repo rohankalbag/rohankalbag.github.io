@@ -1,0 +1,122 @@
+// Layout
+//
+// Styles for managing the structural hierarchy of the site.
+
+.container {
+  max-width: 72rem;
+  padding-left: var(--spacer-2);
+  padding-right: var(--spacer-2);
+  margin-left:  auto;
+  margin-right: auto;
+}
+
+footer {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 5.5rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 4.5rem;
+}
+
+.site-name {
+  color: var(--heading-color);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  text-decoration: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.menu-toggle-lines { display: grid; gap: .22rem; }
+.menu-toggle-lines span { display: block; width: 1.05rem; height: 1px; background: var(--heading-color); }
+.menu-toggle:hover, .menu-toggle:focus-visible { border-color: var(--accent); }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 1.6rem;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 99px;
+  cursor: pointer;
+}
+
+.theme-toggle-track {
+  position: relative;
+  display: block;
+  width: 2.05rem;
+  height: 1rem;
+  background: var(--border-color);
+  border-radius: 99px;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: .14rem;
+  left: .14rem;
+  width: .72rem;
+  height: .72rem;
+  background: var(--heading-color);
+  border-radius: 50%;
+  transition: transform .2s ease, background-color .2s ease;
+}
+
+.theme-toggle[aria-pressed="true"] .theme-toggle-thumb { transform: translateX(1.05rem); background: var(--accent); }
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--accent);
+}
+
+.footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+  color: var(--gray-500);
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: .5rem;
+}
+
+.footer-links a { color: inherit; }
+
+@media (max-width: 46rem) {
+  .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .site-header { position: relative; min-height: 4.5rem; margin-bottom: 3rem; }
+  .header-actions { gap: .55rem; }
+  .theme-toggle { width: 2.4rem; }
+  .menu-toggle { display: inline-flex; }
+}

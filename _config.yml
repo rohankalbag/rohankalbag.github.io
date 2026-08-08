@@ -1,0 +1,64 @@
+# Setup
+title: Rohan Rajesh Kalbag
+url: https://rohankalbag.github.io
+paginate: 10
+baseurl: ""
+permalink: pretty
+
+# Gems
+plugins:
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+# Optimize Jekyll
+exclude:
+  - .editorconfig
+  - .git
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+
+sass:
+  sass_dir: _sass
+  style: :compressed
+
+# Options
+
+# Replace this value and uncomment to enable Google Analytics tracking
+# ga_analytics: UA-000000-0
+
+# Specify the author for blog posts
+author:
+  name: Rohan Kalbag
+  url: https://rohankalbag.github.io
+  email: kalbag.rohan.r@gmail.com
+
+# Custom vars
+version: 3.0.0
+
+# Navbar page list
+nav:
+  - title: Projects
+    url: /projects
+
+  - title: Blogs
+    url: /blogs
+
+  - title: About
+    url: /about
+
+  - title: Reach Out
+    url: https://rohankalbag.vercel.app/
+
+social:
+  - name: facebook
+    url: https://www.facebook.com/rohan.kalbag.9/
+  - name: github
+    url: https://www.github.com/rohankalbag
+  - name: email
+    url: mailto:kalbag.rohan.r@gmail.com
+  - name: linkedin
+    url: https://www.linkedin.com/in/rohanrkalbag/
